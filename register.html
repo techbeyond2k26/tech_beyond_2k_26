@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Register | VEC Sympo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+
+<body class="register-bg">
+
+<nav class="st-nav">
+  <div class="st-nav-inner">
+
+    <!-- Logo -->
+    <div class="st-logo">
+      <img src="assets/logo-removebg-preview.png" alt="VEC Logo">
+    </div>
+
+    <!-- Menu -->
+    <ul class="st-menu">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="events.html">Event</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+
+
+  </div>
+</nav>
+
+<section class="register-section">
+  <div class="register-box">
+
+    <h2 class="register-title">ENTER THE GATE</h2>
+    <p class="register-sub">
+      Registration is not just a form — it’s a passage into the
+      <span class="glitch" data-text="Upside Down">Upside Down</span>.
+    </p>
+    <p class="register-sub"> Registration Fee - 200 Per Head<p>
+
+    <form>
+
+      <!-- BASIC DETAILS -->
+      <label for="fullName">Full Name</label>
+      <input
+        type="text"
+        id="fullName"
+        name="fullName"
+        placeholder="Full Name"
+        required>
+
+      <label for="email">Email Address</label>
+      <input
+        type="email"
+        id="email"
+        name="email"
+        placeholder="Email Address"
+        required>
+      <label for="Mobile Number">Mobile Number</label>
+      <input
+        type="number"
+        id="mobile number"
+        name="number"
+        placeholder="Mobile Number"
+        required>
+
+      <label for="college">College Name</label>
+      <input
+        type="text"
+        id="college"
+        name="college"
+        placeholder="College Name"
+        required>
+
+      <select name="year" required>
+        <option value="" disabled selected>Select Year</option>
+        <option>1st Year</option>
+        <option>2nd Year</option>
+        <option>3rd Year</option>
+        <option>4th Year</option>
+      </select>
+
+      <select name="department" required>
+        <option value="" disabled selected>Select Department</option>
+        <option>Information Technology</option>
+        <option>Computer Science Engineering</option>
+        <option>Artificial Intelligence & Data Science</option>
+        <option>Electronics and Communication Engineering</option>
+        <option>Electrical and Electronics Engineering</option>
+        <option>Mechanical Engineering</option>
+        <option>Civil Engineering</option>
+        <option>Other</option>
+      </select>
+
+      <p class="event-heading">Select Maximum of 3 events</p>
+      <!-- Hidden counter (DO NOT REMOVE) -->
+      <span id="eventCount" style="display:none;">0</span>
+      <!-- EVENTS -->
+      <div class="event-section">
+
+        <h3 class="event-heading">TECHNICAL EVENTS</h3>
+
+        <label class="event-option">
+          <input type="checkbox" name="events" data-team="true" data-min="1" data-max="2">
+          <span>Frontend Flayer<br>(Web design)</span>
+        </label>
+    <div class="team-fields" data-team-fields style="display:none;"></div>
+
+
+        <label class="event-option">
+          <input type="checkbox" name="events" data-team="true" data-min="1" data-max="3">
+          <span>Stranger Archives<br>(Paper Presentation)</span>
+        </label>
+      <div class="team-fields" data-team-fields style="display:none;"></div>
+
+
+        <label class="event-option">
+          <input type="checkbox" name="events" data-team="true" data-min="1" data-max="3">
+          <span>Project Eleven<br>(Project Expo)</span>
+        </label>
+       <div class="team-fields" data-team-fields style="display:none;"></div>
+
+
+        <label class="event-option">
+          <input type="checkbox" name="events" data-team="true" data-min="3" data-max="3">
+          <span>Mindflayer Hackathon<br>(Hackathon)</span>
+        </label>
+    <div class="team-fields" data-team-fields style="display:none;"></div>
+
+
+        <label class="event-option">
+          <input type="checkbox" name="events" data-team="true" data-min="1" data-max="2">
+          <span>Error 404:Upside Down<br>(Debugging)</span>
+        </label>
+     <div class="team-fields" data-team-fields style="display:none;"></div>
+
+
+        <h3 class="event-heading">NON-TECHNICAL EVENTS</h3>
+
+        <label class="event-option">
+          <input type="checkbox" name="events" data-team="true" data-min="3" data-max="4">
+          <span>Hunt for 011<br>(Tresure Hunt)</span>
+        </label>
+        <div class="team-fields" data-team-fields style="display:none;"></div>
+
+
+        <label class="event-option">
+          <input type="checkbox" name="events" data-team="true" data-min="1" data-max="2">
+          <span>Play with Vecna<br>(Gamming)</span>
+        </label>
+      <div class="team-fields" data-team-fields style="display:none;"></div>
+
+
+        <label class="event-option">
+          <input type="checkbox" name="events" data-team="true" data-min="2" data-max="4">
+          <span>True Sight<br>(Connections)</span>
+        </label>
+     <div class="team-fields" data-team-fields style="display:none;"></div>
+
+
+        <label class="event-option">
+          <input type="checkbox" name="events" data-team="true" data-min="4" data-max="6">
+          <span>The AD Dimension<br>(AD Zap)</span>
+        </label>
+    <div class="team-fields" data-team-fields style="display:none;"></div>
+
+
+        <label class="event-option">
+          <input type="checkbox" name="events" data-team="true" data-min="1" data-max="1">
+          <span>Vision of Will Byers<br>(Short Film)</span>
+        </label>
+        <div class="team-fields" data-team-fields style="display:none;"></div>
+
+
+      </div>
+
+
+      <!-- SURPRISE EVENT -->
+      <h3 class="event-heading">SURPRISE EVENT</h3>
+      <p class="event-note">
+        Pay ₹200 for 3 events.<br>
+        Surprise Event costs extra ₹50 (Total ₹250).
+      </p>
+
+      <label class="event-option">
+        <input type="checkbox" id="surpriseEvent" name="surpriseEvent">
+        <span>Surprise Event (+ ₹50)</span>
+      </label>
+      <!-- FOOD PREFERENCE -->
+<h3 class="event-heading">FOOD PREFERENCE</h3>
+
+<p class="event-note">
+  Fuel for your journey into the Upside Down
+</p>
+      
+<label class="event-option">
+  <input type="radio" name="foodPreference" value="Veg" required>
+  <span>Vegetarian</span>
+</label>
+
+<label class="event-option">
+  <input type="radio" name="foodPreference" value="Non-Veg" required>
+  <span>Non-Vegetarian</span>
+</label>
+
+
+      <!-- PAYMENT -->
+      <h3 class="event-heading">PAYMENT DETAILS</h3>
+
+      <div class="payment-box">
+        <p class="payment-amount">
+          Total Payable Amount: <span id="payAmount">₹150</span>
+        </p>
+
+        <div class="qr-box">
+          <img
+            src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=upi://pay?pa=hai.priyadharshini-1@oksbi&pn=VEC%20Symposium&cu=INR"
+            alt="UPI QR Code">
+        </div>
+
+        <input
+          type="file"
+          id="paymentProof"
+          name="paymentProof"
+          accept="image/*"
+          required>
+
+        <p class="disclaimer">
+          ⚠️ Bring the payment screenshot when you come for the symposium.
+        </p>
+      </div>
+
+      <button type="submit" class="register-btn">
+        ENTER THE UPSIDE DOWN
+      </button>
+
+    </form>
+  </div>
+</section>
+</form>
+</section>
+
+<!-- ✅ STRANGER THINGS LOADER (OUTSIDE FORM) -->
+<div id="stLoader">
+  <div class="st-lines"></div>
+  <div class="st-box">
+    <h1>WAIT A MOMENT</h1>
+    <p>The gate is opening...</p>
+  </div>
+</div>
+<!-- STRANGER THINGS DUPLICATE ALERT -->
+<div id="duplicateOverlay">
+  <div class="dup-lines"></div>
+
+  <div class="dup-box">
+    <h1>ALREADY REGISTERED</h1>
+    <p>You have crossed this gate before</p>
+
+    <button onclick="location.href='index.html'">HOME</button>
+    <button onclick="location.href='events.html'">EVENTS</button>
+  </div>
+</div>
+
+<script  defer src="assets/main.js"></script>
+<script>
+  window.addEventListener("pageshow", function (e) {
+    if (e.persisted) {
+      location.reload();
+    }
+  });
+</script>
+
+</body>
+</html>

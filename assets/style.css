@@ -1,0 +1,2750 @@
+:root {
+  --bg: #050505;
+  --red: #e50914;
+  --glow: #ff3b3b;
+  --blue: #00e5ff;
+  --amber: #ffb703;
+}
+
+/* ================= RESET ================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+body{
+  padding-left: env(safe-area-inset-left);
+  padding-right: env(safe-area-inset-right);
+}
+
+body {
+  background: #000;
+  color: white;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* ================= BACKGROUND VIDEO ================= */
+.video-bg {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100svh;
+  z-index: -10;
+  overflow: hidden;
+  pointer-events:none;
+}
+
+.video-bg video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.video-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events:none;
+}
+
+/* ================= VHS OVERLAY ================= */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events:none;
+  z-index: 999;
+}
+
+/* ================= GLOBAL ================= */
+main {
+  position: relative;
+  z-index: 1;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+/* ================= NAVBAR ================= */
+/* NAV WRAPPER */
+.st-nav {
+  position: fixed;
+  top: 18px;
+  width: 100%;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+}
+
+/* CAPSULE */
+.st-nav-inner {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+
+  padding: 10px 22px;
+  border-radius: 50px;
+
+  background: linear-gradient(
+    135deg,
+    rgba(20, 0, 0, 0.85),
+    rgba(0, 0, 0, 0.9)
+  );
+
+  backdrop-filter: blur(10px);
+
+  box-shadow:
+    0 0 30px rgba(229, 9, 20, 0.45),
+    inset 0 0 20px rgba(0, 0, 0, 0.8);
+}
+
+/* LOGO */
+.st-logo img {
+  height: 36px;
+  filter: drop-shadow(0 0 10px rgba(255, 60, 60, 0.8));
+}
+
+/* MENU */
+.st-menu {
+  list-style: none;
+  display: flex;
+  gap: 22px;
+  margin: 0;
+  padding: 0;
+}
+
+.st-menu a {
+  color: #eee;
+  text-decoration: none;
+  font-size: 0.95rem;
+  letter-spacing: 1px;
+  padding: 6px 12px;
+  border-radius: 20px;
+  transition: all 0.3s ease;
+}
+
+/* Hover glow */
+.st-menu a:hover {
+  background: rgba(255, 42, 42, 0.2);
+  box-shadow: 0 0 12px rgba(255, 42, 42, 0.6);
+}
+
+/* Active page */
+.st-menu a.active {
+  background: rgba(255, 42, 42, 0.35);
+  box-shadow:
+    0 0 18px rgba(255, 42, 42, 0.9),
+    inset 0 0 10px rgba(0, 0, 0, 0.6);
+}
+
+/* REGISTER BUTTON */
+.st-register {
+  padding: 8px 20px;
+  border-radius: 22px;
+
+  background: linear-gradient(135deg, #ff2a2a, #8b0000);
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  letter-spacing: 1.5px;
+
+  box-shadow:
+    0 0 20px rgba(229, 9, 20, 0.8);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.st-register:hover {
+  transform: scale(1.08);
+  box-shadow:
+    0 0 35px rgba(229, 9, 20, 1),
+    0 0 60px rgba(229, 9, 20, 0.6);
+}
+
+/* ================= MOBILE SINGLE-LINE NAV ================= */
+@media (max-width: 768px) {
+
+  .st-nav {
+    top: 8px;
+  }
+
+  .st-nav-inner {
+    gap: 8px;                  /* tighter spacing */
+    padding: 6px 10px;         /* smaller capsule */
+    border-radius: 40px;
+  }
+
+  /* Logo smaller */
+  .st-logo img {
+    height: 26px;
+  }
+
+  /* Menu tighter */
+  .st-menu {
+    gap: 8px;
+  }
+
+  .st-menu a {
+    font-size: 0.75rem;
+    padding: 4px 8px;
+    letter-spacing: 0.5px;
+  }
+
+  /* Register button compact */
+  .st-register {
+    padding: 5px 10px;
+    font-size: 0.75rem;
+    letter-spacing: 0.8px;
+    border-radius: 16px;
+  }
+}
+
+
+
+/* ================= HERO ================= */
+.hero {
+  height: 100svh;
+  padding-top: 120px;
+  padding-bottom: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+  background: transparent;
+}
+
+.hero-content{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  position: relative;
+  z-index: 3;
+  background: none;
+}
+.hero-content,
+.hero-header {
+  background: transparent !important;
+}
+
+/* ================= HERO HEADER ================= */
+
+.hero-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 8px;
+  margin-bottom: 30px;
+  z-index: 5;
+}
+
+/* College name row */
+.college-name {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 1.3rem;
+  letter-spacing: 3px;
+  color: #f5e6c8;
+
+  text-shadow:
+    0 0 10px rgba(255, 200, 120, 0.35),
+    0 0 25px rgba(255, 150, 60, 0.2);
+
+  opacity: 0;
+}
+.college-logo {
+  width: 90px;
+  margin-bottom: 14px;
+
+  opacity: 0;
+  transform: scale(0.85);
+
+  filter:
+    drop-shadow(0 0 12px rgba(255, 200, 120, 0.6))
+    drop-shadow(0 0 30px rgba(255, 120, 0, 0.35));
+
+  z-index: 8;
+}
+/* Logo reveal */
+.reveal-logo.visible {
+  animation: logoReveal 1.2s ease forwards;
+}
+@keyframes logoReveal {
+  from {
+    opacity: 0;
+    transform: scale(0.85);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Affiliation */
+.affiliation {
+  font-size: 0.85rem;
+  letter-spacing: 2px;
+  color: #e0d4c0;
+  opacity: 0.85;
+}
+
+
+/* Department */
+.department {
+  font-size: 0.95rem;
+  letter-spacing: 2.5px;
+  color:#ffd38a; 
+
+  text-shadow:
+    0 0 10px rgba(255, 210, 140, 0.35),
+    0 0 20px rgba(255, 170, 80, 0.25);
+}
+
+
+/* Proudly presents */
+.presents {
+  margin-top: 12px;
+  font-size: 0.9rem;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: #ddd;
+}
+.sponser{
+  display:flex;
+  flex-wrap: wrap;
+  width: 330px;
+  justify-content: space-evenly;
+  margin-bottom: 25px;
+  font-size: 1rem;
+  letter-spacing: 4px;
+}
+.sponser p{
+  margin-bottom: 5px;
+}
+.sponser img{
+  height: 35px;
+  width: 83px; 
+  border-radius: 10px;
+} 
+
+.hero,
+.hero-content,
+.hero * {
+  position: relative;
+  z-index: 3;
+}
+
+body::after {
+  z-index: 3; /* VHS overlay below content */
+}
+
+/* ================= HIGHLIGHTS SECTION ================= */
+
+.highlights {
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.section-title {
+  font-family: 'ITC Benguiat', serif;
+  color: #ff2a2a;
+  font-size: 2.6rem;
+  letter-spacing: 4px;
+  text-shadow: 0 0 20px rgba(255, 42, 42, 0.8);
+}
+
+.section-sub {
+  margin-top: 10px;
+  font-size: 1rem;
+  letter-spacing: 2px;
+  color: #ccc;
+  opacity: 0.85;
+}
+
+/* Grid */
+.highlight-grid {
+  margin-top: 40px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Card */
+.highlight-card {
+  position: relative;
+  height: 200px;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 0 25px rgba(229,9,20,0.4);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.highlight-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.75);
+  transition: transform 0.4s ease, filter 0.4s ease;
+}
+
+/* Hover Effect */
+.highlight-card:hover {
+  transform: scale(1.05);
+  box-shadow:
+    0 0 30px rgba(229,9,20,0.9),
+    0 0 60px rgba(229,9,20,0.5);
+}
+
+.highlight-card:hover img {
+  transform: scale(1.1);
+  filter: brightness(1);
+}
+/* STAT CARD */
+.stat-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(145deg, #1a0000, #000);
+  text-align: center;
+}
+
+.stat-card h3 {
+  font-size: 2.4rem;
+  color: #ff3b3b;
+  text-shadow: 0 0 20px red;
+}
+
+.stat-card p {
+  margin-top: 6px;
+  letter-spacing: 2px;
+  font-size: 0.85rem;
+  color: #ccc;
+}
+
+/* SIZE VARIANTS */
+.large {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+
+.wide {
+  grid-column: span 2;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 2rem;
+  }
+  .highlight-card {
+    height: 180px;
+  }
+}
+
+/* ================= FOOTER ================= */
+
+.site-footer {
+  margin-top: 80px;
+  padding: 40px 20px 30px;
+  text-align: center;
+
+  background: linear-gradient(
+    to top,
+    rgba(120, 0, 0, 0.35),
+    rgba(0, 0, 0, 0.95)
+  );
+
+  box-shadow: inset 0 10px 40px rgba(255, 0, 0, 0.15);
+}
+
+.footer-title {
+  font-size: 0.9rem;
+  letter-spacing: 3px;
+  color: #ffb3b3;
+  margin-bottom: 20px;
+}
+
+/* ICON CONTAINER */
+.footer-icons {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-bottom: 18px;
+}
+
+/* ICON STYLE */
+.footer-icons a {
+  font-size: 1.4rem;
+  color: #ff3b3b;
+  transition: transform 0.3s ease, text-shadow 0.3s ease;
+}
+
+/* HOVER EFFECT */
+.footer-icons a:hover {
+  transform: scale(1.2);
+  text-shadow:
+    0 0 10px #ff2a2a,
+    0 0 25px rgba(255, 0, 0, 0.8);
+}
+
+/* COPYRIGHT */
+.footer-copy {
+  font-size: 0.8rem;
+  color: #aaa;
+  letter-spacing: 1px;
+}
+
+/* MOBILE */
+@media (max-width: 480px) {
+  .footer-icons {
+    gap: 22px;
+  }
+}
+.contact-item a {
+  color: #ff3b3b;
+  margin-left: 10px;
+  font-size: 1.1rem;
+}
+
+.contact-item a:hover {
+  text-shadow: 0 0 12px red;
+  transform: scale(1.2);
+}
+
+
+/* Main Event Title */
+.event-title {
+  font-family: 'ITC Benguiat', serif;
+  font-size: 3.5rem;
+  color: #ff2a2a;
+  letter-spacing: 4px;
+  margin-top: 6px;
+
+  text-shadow:
+    0 0 12px #ff2a2a,
+    0 0 30px #b30000,
+    0 0 60px rgba(139,0,0,0.7);
+}
+/* ================= EVENT TITLE IMAGE ================= */
+
+.event-title-img {
+  width: 420px;          /* desktop size */
+  max-width: 90%;
+  margin: 10px 0 14px;
+  opacity: 1;
+  transform: none;
+
+  filter:
+    drop-shadow(0 0 10px rgba(255, 40, 40, 0.8))
+    drop-shadow(0 0 30px rgba(180, 0, 0, 0.6));
+
+  animation: titleGlow 3s ease-in-out infinite;
+}
+
+/* Soft glowing pulse*/ 
+@keyframes titleGlow {
+  0% {
+    filter:
+      drop-shadow(0 0 8px rgba(255, 40, 40, 0.6))
+      drop-shadow(0 0 20px rgba(180, 0, 0, 0.4));
+  }
+  50% {
+    filter:
+      drop-shadow(0 0 14px rgba(255, 40, 40, 1))
+      drop-shadow(0 0 40px rgba(180, 0, 0, 0.8));
+  }
+  100% {
+    filter:
+      drop-shadow(0 0 8px rgba(255, 40, 40, 0.6))
+      drop-shadow(0 0 20px rgba(180, 0, 0, 0.4));
+  }
+}
+@media (max-width: 768px) {
+  .event-title-img {
+    width: 300px;
+  }
+}
+
+
+
+/* subtle cinematic fade */
+@keyframes logoFade {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@media (max-width: 768px) {
+  .college-logo {
+    width: 90px;
+  }
+}
+
+
+.hero p {
+  margin-top: 15px;
+  color: #ccc;
+  letter-spacing: 2px;
+}
+/* Button */
+.register-btn {
+  margin-top: 18px;
+  width: 340px;
+  max-width: 90%;
+  height: 48px;
+
+  background: linear-gradient(90deg, #ff1e1e, #b30000);
+  border: none;
+  border-radius: 6px;
+
+  color: white;
+  font-weight: bold;
+  letter-spacing: 2px;
+  cursor: pointer;
+
+  box-shadow: 0 0 25px rgba(229,9,20,0.6);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.register-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 40px rgba(229,9,20,0.9);
+}
+/* Glow pulse */
+.register-btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle, rgba(255,255,255,0.4), transparent 70%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.register-btn:hover::before {
+  opacity: 1;
+}
+
+.reveal-logo,
+.reveal-title,
+.reveal-tagline,
+.reveal-countdown {
+  opacity: 0;
+  transform: translateY(20px);
+}
+.reveal-logo.visible {
+  animation: logoReveal 1.2s ease forwards;
+}
+
+@keyframes logoReveal {
+  0% {
+    opacity: 0;
+    transform: scale(0.85);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+.reveal-title.visible {
+  animation: titleReveal 1.3s ease forwards;
+}
+
+@keyframes titleReveal {
+  0% {
+    opacity: 0;
+    transform: translateY(25px);
+    text-shadow: none;
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    text-shadow:
+      0 0 10px #ff2a2a,
+      0 0 25px #ff0000,
+      0 0 50px #8b0000;
+  }
+}
+.reveal-tagline.visible {
+  animation: fadeUp 1s ease forwards;
+  animation-delay: 0.1s;
+}
+.reveal-countdown.visible {
+  animation: fadeUp 1s ease forwards;
+  animation-delay: 0.2s;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@media (max-width: 768px) {
+  .reveal-logo,
+  .reveal-title {
+    animation-duration: 0.9s !important;
+  }
+}
+/* nav logo */
+.nav-logo img {
+  height: 40px;
+  width: auto;
+  filter: drop-shadow(0 0 8px rgba(229, 9, 20, 0.6));
+}
+
+
+/*count down style */
+.countdown {
+  position: relative;
+  z-index: 6;               /* bring above overlays */
+  margin: 18px auto 22px;
+   margin-top: 12px;
+  padding: 10px 18px;
+  min-width: 260px;
+  text-align: center;
+  font-size: 1.1rem;
+  letter-spacing: 2px;
+
+  background: rgba(0,0,0,0.55);
+  border: 1px solid rgba(255,42,42,0.5);
+  border-radius: 6px;
+
+  box-shadow: 0 0 18px rgba(255,42,42,0.4);
+
+  backdrop-filter: blur(6px);
+}
+.countdown {
+  animation: countdownPulse 2.5s ease-in-out infinite;
+}
+
+@keyframes countdownPulse {
+  0% {
+    box-shadow:
+      0 0 12px rgba(255, 59, 59, 0.35),
+      inset 0 0 8px rgba(255, 59, 59, 0.15);
+  }
+  50% {
+    box-shadow:
+      0 0 22px rgba(255, 59, 59, 0.7),
+      inset 0 0 12px rgba(255, 59, 59, 0.3);
+  }
+  100% {
+    box-shadow:
+      0 0 12px rgba(255, 59, 59, 0.35),
+      inset 0 0 8px rgba(255, 59, 59, 0.15);
+  }
+}
+.countdown span {
+  margin: 0 6px;
+  font-size: 0.85rem;
+  opacity: 0.85;
+}
+@media (max-width: 768px) {
+  .countdown {
+    font-size: 0.95rem;
+    padding: 10px 16px;
+    letter-spacing: 1px;
+  }
+}
+
+.event-title span {
+  display: block;
+  font-size: 3.8rem;
+}
+
+/* ================= SECTIONS ================= */
+section {
+  padding: 70px 0;
+}
+
+h1 {
+  font-family: 'ITC Benguiat', serif;
+  color: var(--red);
+  text-shadow: 0 0 15px var(--glow);
+}
+
+/* ================= NETFLIX-STYLE ROW ================= */
+.st-row {
+  margin: 30px 0;
+}
+
+.st-row-title {
+  text-align: center;
+  margin-left: 60px;
+}
+
+/* ================= CACHE PARAGRAPH ================= */
+
+.event-cache {
+  max-width: 900px;
+  margin: 10px auto 25px auto;
+  padding: 0 20px;
+  text-align: justify;
+
+  font-size: 1.05rem;
+  line-height: 1.8;
+  letter-spacing: 0.5px;
+
+  color: #ff2a2a;
+
+  /* cinematic Stranger Things feel */
+  text-shadow:
+    0 0 8px rgba(229, 9, 20, 0.25),
+    0 0 18px rgba(229, 9, 20, 0.15);
+
+  opacity: 0.9;
+  transform: translateY(15px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.event-cache.visible {
+  opacity: 0.9;
+  transform: translateY(0);
+}
+
+/* subtle glow on important words (optional span usage) */
+.event-cache span {
+  color: var(--glow);
+  text-shadow:
+    0 0 10px var(--glow),
+    0 0 25px rgba(255, 59, 59, 0.5);
+}
+
+/* responsive tuning */
+@media (max-width: 768px) {
+  .event-cache {
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+}
+
+/* ================= GLITCH FLICKER KEYWORD ================= */
+
+.glitch {
+  position: relative;
+  display: inline-block;
+  color: var(--glow);
+  text-shadow:
+    0 0 8px var(--glow),
+    0 0 18px rgba(255, 59, 59, 0.6);
+  animation: glitch-flicker 2.5s infinite;
+}
+
+/* Red & blue ghost layers */
+.glitch::before,
+.glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0.8;
+}
+
+.glitch::before {
+  color: #ff1e1e;
+  transform: translate(-1px, 0);
+  animation: glitch-red 2.5s infinite;
+}
+
+.glitch::after {
+  color: #00e5ff;
+  transform: translate(1px, 0);
+  animation: glitch-blue 2.5s infinite;
+}
+
+/* Main flicker */
+@keyframes glitch-flicker {
+  0%, 100% { opacity: 1; }
+  45% { opacity: 0.85; }
+  50% { opacity: 0.6; }
+  55% { opacity: 0.9; }
+}
+
+/* Red channel glitch */
+@keyframes glitch-red {
+  0%, 100% { clip-path: inset(0 0 0 0); }
+  50% { clip-path: inset(40% 0 20% 0); }
+}
+
+/* Blue channel glitch */
+@keyframes glitch-blue {
+  0%, 100% { clip-path: inset(0 0 0 0); }
+  52% { clip-path: inset(10% 0 60% 0); }
+}
+
+
+/* Scroll container */
+.st-row-wrapper {
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 0 60px;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 10px;
+}
+
+/* Hide scrollbar */
+.st-row-wrapper::-webkit-scrollbar {
+  display: none;
+}
+.st-row-wrapper {
+  scrollbar-width: none;
+}
+
+/* Track — THIS ENABLES SCROLL */
+.st-row-track {
+  display: flex;
+  gap: 16px;
+  width: max-content;   /* 🔑 REQUIRED */
+}
+
+/* Prevent scrollbars and allow smooth movement */
+.st-row-wrapper {
+  overflow: hidden;          /* 🔑 hide scrollbar */
+  position: relative;
+  width: 100%;
+  max-width: 100vw;
+}
+
+/* Track moves, not wrapper */
+.st-row-track {
+  display: flex;
+  gap: 16px;
+  width: max-content;
+}
+
+@media (hover: hover) {
+  .st-card:hover {
+    transform: scale(1.15);
+    box-shadow:
+      0 0 20px #e50914,
+      0 0 55px rgba(229, 9, 20, 0.6);
+  }
+}
+
+
+/* ================= EVENT CARD (BIGGER & FIXED SIZE) ================= */
+
+.st-card {
+  position: relative;
+  width: 320px;        /* 🔼 INCREASED SIZE */
+  height: 180px;       /* 🔼 INCREASED SIZE */
+  background: #000;
+  border-radius: 8px;
+  overflow: hidden;
+  flex-shrink: 0;
+  transition: box-shadow 0.3s ease; /* ❌ no scale jump */
+}
+
+/* Image */
+.st-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+
+}
+
+/* Stranger Things hover glow ONLY */
+.st-card:hover {
+  box-shadow:
+    0 0 20px var(--red),
+    0 0 60px rgba(229, 9, 20, 0.6);
+}
+
+/* Smooth scrolling animation */
+.st-row-wrapper {
+  scroll-behavior: smooth;
+}
+
+
+.st-card:hover img {
+  transform: scale(1.08);
+  filter: brightness(1.1);
+}
+
+/* ================= CAPTION ================= */
+.st-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0,0,0,0.9),
+    rgba(0,0,0,0.4),
+    transparent
+  );
+  opacity: 1;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  transition: opacity 0.3s ease;
+}
+
+.st-overlay h3 {
+  font-size: 0.85rem;
+  color: var(--glow);
+}
+
+.st-overlay p {
+  font-size: 0.7rem;
+  color: #ddd;
+}
+
+/* ===== Mobile Swipe Arrow ===== */
+.scroll-indicator {
+  display: none;
+  align-items: center;
+  gap: 6px;
+  color: #ff2a2a;
+  font-size: 14px;
+  font-family: monospace;
+  margin: 8px 0;
+  animation: swipeAnim 1.5s infinite;
+}
+
+.scroll-indicator .arrow {
+  font-size: 20px;
+}
+
+/* animation */
+@keyframes swipeAnim {
+  0% { opacity: 0.3; transform: translateX(0); }
+  50% { opacity: 1; transform: translateX(6px); }
+  100% { opacity: 0.3; transform: translateX(0); }
+}
+
+/* show ONLY on phone */
+@media (max-width: 768px) {
+  .scroll-indicator {
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 12px;
+  }
+}
+
+/* ================= REGISTER PAGE ================= */
+
+/* ================= REGISTER PAGE BACKGROUND ================= */
+
+.register-bg {
+  min-height: 100svh;
+  background:url(registration-backgrd.jpeg) center center / cover no-repeat fixed;
+  position: relative;
+}
+
+
+
+register-bg {
+  animation: bgZoom 20s ease-in-out infinite alternate;
+}
+
+@keyframes bgZoom {
+  from { background-size: 100%; }
+  to { background-size: 105%; }
+}
+
+
+.register-section {
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 120px 20px 60px;
+}
+
+.register-box {
+  width: 100%;
+  max-width: 420px;
+  background: rgba(0,0,0,0.75);
+  border: 1px solid rgba(229, 9, 20, 0.4);
+  padding: 40px 30px;
+  box-shadow:
+    0 0 25px rgba(229, 9, 20, 0.4),
+    inset 0 0 20px rgba(0,0,0,0.8);
+  position: relative;
+  backdrop-filter: blur(6px);
+}
+
+/* subtle red scan glow */
+.register-box::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 1px solid rgba(255, 59, 59, 0.6);
+  box-shadow: 0 0 25px rgba(255, 59, 59, 0.5);
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+.register-title {
+  text-align: center;
+  font-family: 'Libre Baskerville', serif;
+  color: var(--red);
+  margin-bottom: 10px;
+  text-shadow: 0 0 20px var(--glow);
+}
+
+.register-sub {
+  text-align: center;
+  font-size: 0.9rem;
+  color: #ccc;
+  margin-bottom: 30px;
+}
+
+/* ================= FORM FIELDS ================= */
+
+.register-box input,
+.register-box select {
+  width: 100%;
+  padding: 12px 14px;
+  margin-bottom: 18px;
+  background: #0b0b0b;
+  border: 1px solid #222;
+  color: #eee;
+  font-size: 0.95rem;
+  outline: none;
+  transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+
+.register-box input::placeholder {
+  color: #777;
+}
+
+.register-box input:focus,
+.register-box select:focus {
+  border-color: var(--red);
+  box-shadow: 0 0 12px rgba(229, 9, 20, 0.6);
+}
+
+/* ================= EVENT CHECKBOXES ================= */
+/* EVENT SECTION CONTAINER */
+.event-section {
+  max-width: 520px;
+  margin: 30px auto;
+  font-family: "Courier New", monospace;
+}
+
+/* HEADINGS */
+.event-heading {
+  margin: 22px 0 12px;
+  color: #ff1b1b;
+  font-size: 17px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+/* EVENT BOX */
+.event-option {
+  display: flex;
+  align-items: flex-start;   /* 🔑 NOT center */
+  gap: 10px;
+
+  padding: 14px 16px;
+  margin-bottom: 14px;
+
+  background: rgba(0, 0, 0, 0.75);
+  border: 1px solid rgba(255, 27, 27, 0.35);
+
+  cursor: pointer;
+}
+
+
+
+/* HOVER EFFECT */
+.event-option:hover {
+  border-color: #ff1b1b;
+  cursor: pointer;
+}
+
+/* CHECKBOX */
+.event-option input {
+  width: 15px;
+  height: 15px;
+  margin-top: 2px;           /* 🔑 aligns with text */
+  accent-color: #ff1b1b;
+  flex-shrink: 0;
+}
+
+
+/* EVENT NAME TEXT */
+.event-option span {
+  font-size: 17px;
+  font-weight: 700;
+  color: #ffffff;
+
+  line-height: 1.2;          /* 🔑 prevents dropping */
+  white-space: nowrap;
+}
+
+
+/* CHECKED STATE */
+.event-option input:checked + span {
+  color: #ff1b1b;
+}
+.team-fields {
+  margin: 12px 0 20px 32px;
+  padding: 14px 16px;
+
+  background: rgba(0, 0, 0, 0.55);
+  border-left: 3px solid #ff1b1b;
+  border-radius: 4px;
+}
+
+.team-fields > input[type="text"],
+.team-fields > select {
+  width: 100%;
+  padding: 10px 12px;
+  margin-bottom: 12px;
+
+  background: rgba(0, 0, 0, 0.75);
+  border: 1px solid rgba(255, 27, 27, 0.4);
+  border-radius: 4px;
+
+  font-weight: 600; /* 🔑 slightly bolder */
+}
+
+
+.team-fields input::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+.team-members {
+  margin-top: 8px;
+}
+.team-member-box {
+  margin-top: 10px;
+  padding: 10px 12px;
+
+  background: rgba(20, 20, 20, 0.7);
+  border: 1px dashed rgba(255, 27, 27, 0.4);
+  border-radius: 4px;
+}
+.team-member-box input {
+  width: 100%;
+  padding: 8px 10px;
+  margin-bottom: 6px;
+
+  background: rgba(0, 0, 0, 0.7);
+  color: #fff;
+
+  border: 1px solid rgba(255, 27, 27, 0.25);
+  border-radius: 4px;
+
+  font-size: 12.5px;
+  font-family: "Courier New", monospace;
+}
+.team-fields input:focus,
+.team-fields select:focus {
+  outline: none;
+  border-color: #ff1b1b;
+  box-shadow: 0 0 6px rgba(255, 27, 27, 0.4);
+}
+.team-fields,
+.team-fields input,
+.team-fields select {
+  font-family: "Courier New", monospace;
+  font-size: 13px;
+  letter-spacing: 0.4px;
+  color: #ffffff;
+}
+.team-fields h4 {
+  margin: 10px 0 8px;
+  font-size: 13.5px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  color: #ff1b1b;
+  text-transform: uppercase;
+}
+.team-fields h4 + input,
+.team-fields h4 + input + input,
+.team-fields h4 + input + input + input {
+  width: 100%;
+  padding: 9px 11px;
+  margin-bottom: 8px;
+
+  background: rgba(0, 0, 0, 0.7);
+  border: 1px solid rgba(255, 27, 27, 0.35);
+  border-radius: 4px;
+
+  font-weight: 500;
+}
+.team-members {
+  margin-top: 12px;
+}
+.team-member-box {
+  margin-top: 10px;
+  padding: 10px 12px;
+
+  background: rgba(15, 15, 15, 0.7);
+  border: 1px dashed rgba(255, 27, 27, 0.35);
+  border-radius: 4px;
+}
+.team-member-box input {
+  width: 100%;
+  padding: 8px 10px;
+  margin-bottom: 6px;
+
+  background: rgba(0, 0, 0, 0.7);
+  border: 1px solid rgba(255, 27, 27, 0.25);
+  border-radius: 4px;
+
+  font-size: 12.5px;   /* 🔑 slightly smaller */
+  font-weight: 500;
+}
+.team-fields input::placeholder {
+  color: rgba(255, 255, 255, 0.55);
+}
+.team-fields input:focus,
+.team-fields select:focus {
+  outline: none;
+  border-color: #ff1b1b;
+  box-shadow: 0 0 6px rgba(255, 27, 27, 0.4);
+}
+/* Surprise event description */
+.event-note {
+  max-width: 520px;
+  margin: 10px auto 14px;
+  padding: 10px 14px;
+
+  background: rgba(255, 27, 27, 0.08);
+  border-left: 3px solid #ff1b1b;
+  border-radius: 4px;
+
+  color: #ffffff;
+  font-size: 13px;
+  line-height: 1.5;
+  font-family: "Courier New", monospace;
+}
+
+/* Highlight strong text */
+.event-note strong {
+  color: #ff1b1b;
+  font-weight: 700;
+}
+
+/* Surprise event box slight variation */
+.surprise-option {
+  border-color: rgba(255, 27, 27, 0.6);
+  background: rgba(0, 0, 0, 0.8);
+}
+.payment-box {
+  margin: 20px 0;
+  padding: 16px;
+
+  background: rgba(0, 0, 0, 0.65);
+  border: 2px solid rgba(255, 27, 27, 0.6);
+  border-radius: 6px;
+
+  text-align: center;
+  font-family: "Courier New", monospace;
+}
+
+.payment-amount {
+  font-size: 15px;
+  margin-bottom: 12px;
+}
+
+.payment-amount span {
+  color: #ff1b1b;
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.qr-box img {
+  width: 180px;
+  margin: 12px auto;
+  display: block;
+  border-radius: 6px;
+}
+
+.payment-note {
+  font-size: 13px;
+  margin: 10px 0;
+  color: #ffffff;
+}
+
+.payment-box input[type="file"] {
+  margin-top: 10px;
+  color: #ffffff;
+}
+
+.disclaimer {
+  margin-top: 12px;
+  font-size: 12.5px;
+  color: #ffb3b3;
+}
+/* ================= FORCE QR VISIBILITY ================= */
+
+.qr-box {
+  position: relative;
+  z-index: 9999;
+  background: #ffffff;
+  padding: 10px;
+  width: fit-content;
+  margin: 14px auto;
+  border-radius: 6px;
+}
+
+.qr-box img {
+  display: block !important;
+  width: 220px !important;
+  height: auto !important;
+
+  opacity: 1 !important;
+  visibility: visible !important;
+
+  filter: none !important;
+  mix-blend-mode: normal !important;
+
+  background: #ffffff !important;
+}
+
+
+/* ================= BUTTON ================= */
+
+.register-btn {
+  width: 100%;
+  padding: 14px;
+  margin-top: 10px;
+  background: linear-gradient(135deg, #ff2a2a, #8b0000);
+  color: #fff;
+  font-size: 0.95rem;
+  letter-spacing: 2px;
+  border: none;
+  cursor: pointer;
+  box-shadow:
+    0 0 25px rgba(229, 9, 20, 0.7);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.register-btn:hover {
+  transform: scale(1.05);
+  box-shadow:
+    0 0 35px rgba(229, 9, 20, 0.9),
+    0 0 60px rgba(229, 9, 20, 0.6);
+}
+
+
+/* ================= FOOTER ================= */
+footer {
+  text-align: center;
+  padding: 30px;
+  opacity: 0.6;
+}
+
+/* ================= RESPONSIVE LAYOUT ================= */
+
+@media screen and (max-width: 1200px) {
+  body div {
+    flex-basis: 100%;
+  }
+  .partision {
+    flex-basis: 40%;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .partision {
+    flex-basis: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .register-bg {
+    background-attachment: scroll;
+  }
+}
+
+/* UPSIDE DOWN TRANSITION */
+.upside-down {
+    animation: flipWorld 1.8s ease-in-out forwards;
+}
+
+@keyframes flipWorld {
+    0% {
+        transform: rotate(0deg);
+        filter: invert(0);
+    }
+    100% {
+        transform: rotate(180deg);
+        filter: invert(1) hue-rotate(180deg);
+    }
+}
+
+/* ================= MOBILE RESPONSIVENESS ================= */
+@media (max-width: 768px) {
+
+  nav {
+    padding: 12px 15px;
+    font-size: 0.9rem;
+  }
+
+  nav div a {
+    margin-left: 12px;
+  }
+
+  section {
+    padding: 80px 20px;
+  }
+
+  h2 {
+    font-size: 1.6rem;
+    text-align: center;
+  }
+
+  p, li {
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+
+  button {
+    width: 100%;
+    max-width: 280px;
+    margin: 20px auto;
+    display: block;
+  }
+
+}
+/* ===== STRANGER THINGS LOADER ===== */
+#stLoader{
+  position:fixed;
+  inset:0;
+  background:#000;
+  display:none;
+  justify-content:center;
+  align-items:center;
+  z-index:9999;
+  overflow:hidden;
+}
+
+/* Falling lines */
+.st-lines::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    repeating-linear-gradient(
+      180deg,
+      transparent,
+      transparent 18px,
+      rgba(229,9,20,0.6) 20px,
+      transparent 22px
+    );
+  animation:fallLines 1.2s linear infinite;
+  opacity:0.6;
+}
+
+@keyframes fallLines{
+  from{background-position:0 0;}
+  to{background-position:0 100px;}
+}
+
+/* Center box */
+.st-box{
+  position:relative;
+  z-index:2;
+  padding:40px 60px;
+  border:2px solid #e50914;
+  box-shadow:
+    0 0 30px rgba(229,9,20,0.9),
+    inset 0 0 15px rgba(229,9,20,0.4);
+  background:rgba(0,0,0,0.9);
+  text-align:center;
+  animation:entry 0.8s ease-out, flicker 1.8s infinite;
+}
+
+@keyframes entry{
+  from{
+    transform:scale(0.7);
+    opacity:0;
+    filter:blur(6px);
+  }
+  to{
+    transform:scale(1);
+    opacity:1;
+    filter:blur(0);
+  }
+}
+
+@keyframes flicker{
+  0%,100%{opacity:1;}
+  50%{opacity:0.8;}
+}
+
+.st-box h1{
+  margin:0;
+  font-size:42px;
+  letter-spacing:8px;
+  font-weight:900;
+  color:#e50914;
+  text-shadow:
+    0 0 8px rgba(229,9,20,1),
+    0 0 24px rgba(229,9,20,0.8);
+}
+
+.st-box p{
+  margin-top:12px;
+  color:#ffffff;
+  font-size:14px;
+  letter-spacing:4px;
+}
+/* ===== DUPLICATE REGISTRATION OVERLAY ===== */
+#duplicateOverlay{
+  position:fixed;
+  inset:0;
+  background:#000;
+  display:none;
+  justify-content:center;
+  align-items:center;
+  z-index:10000;
+  overflow:hidden;
+}
+
+/* Falling red lines */
+.dup-lines::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    repeating-linear-gradient(
+      180deg,
+      transparent,
+      transparent 16px,
+      rgba(229,9,20,0.7) 18px,
+      transparent 20px
+    );
+  animation:dupFall 1s linear infinite;
+  opacity:0.6;
+}
+
+@keyframes dupFall{
+  from{background-position:0 0;}
+  to{background-position:0 120px;}
+}
+
+/* Alert box */
+.dup-box{
+  position:relative;
+  z-index:2;
+  padding:50px 65px;
+  text-align:center;
+  background:rgba(0,0,0,0.9);
+  border:3px solid #e50914;
+  box-shadow:
+    0 0 45px rgba(229,9,20,0.9),
+    inset 0 0 18px rgba(229,9,20,0.4);
+  animation:dupEntry 0.9s ease-out, dupFlicker 1.7s infinite;
+}
+
+/* Entry animation */
+@keyframes dupEntry{
+  from{
+    transform:scale(0.65);
+    opacity:0;
+    filter:blur(6px);
+  }
+  to{
+    transform:scale(1);
+    opacity:1;
+    filter:blur(0);
+  }
+}
+
+/* Flicker */
+@keyframes dupFlicker{
+  0%,100%{opacity:1;}
+  50%{opacity:0.8;}
+}
+
+.dup-box h1{
+  margin:0;
+  font-size:44px;
+  font-weight:900;
+  letter-spacing:8px;
+  color:#e50914;
+  text-shadow:
+    0 0 10px rgba(229,9,20,1),
+    0 0 30px rgba(229,9,20,0.9);
+}
+
+.dup-box p{
+  margin:14px 0 30px;
+  font-size:15px;
+  letter-spacing:4px;
+  color:#ffffff;
+}
+
+.dup-box button{
+  margin:0 15px;
+  padding:14px 34px;
+  background:#e50914;
+  color:#000;
+  border:none;
+  font-size:14px;
+  letter-spacing:3px;
+  font-weight:bold;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.dup-box button:hover{
+  background:#fff;
+  box-shadow:0 0 20px rgba(229,9,20,0.9);
+}
+
+#stLoader,
+#duplicateOverlay {
+  display: none;
+}
+/* 🔴 FIX FORM INTERACTION ISSUE */
+.register-bg::after {
+  display: none !important;
+}
+.register-box {
+  position: relative;
+  z-index: 9999;
+}
+
+.register-box select,
+.register-box input {
+  position: relative;
+  z-index: 9999;
+}
+nav {
+  z-index: 10;
+}
+
+.register-section {
+  position: relative;
+  z-index: 20;
+}
+/* 🔧 FIX NAVIGATION CLICK ISSUE */
+#stLoader,
+#duplicateOverlay {
+  pointer-events: none;
+}
+#stLoader.active,
+#duplicateOverlay.active {
+  display: flex;
+  pointer-events: auto;
+}
+/* 🔥 ALLOW NAV CLICKS */
+#stLoader,
+#duplicateOverlay {
+  pointer-events: none;
+}
+
+/* enable clicks ONLY when active */
+#stLoader.active,
+#duplicateOverlay.active {
+  display: flex;
+  pointer-events: auto;
+}
+/* 🔥 Disable VHS overlay on register page */
+.register-bg::after {
+  display: none !important;
+}
+/* 🔥 FIX CLICK BLOCKING */
+#stLoader,
+#duplicateOverlay {
+  pointer-events: none;
+}
+
+#stLoader.active,
+#duplicateOverlay.active {
+  display: flex;
+  pointer-events: auto;
+}
+nav {
+  position: fixed;
+  z-index: 10001;
+}
+/* ================= FINAL MOBILE SAFETY FIX ,the fix starts here ,dont touch the above styling================= */
+@media (max-width: 600px) {
+
+  .register-box{
+    max-width: 92%;
+    padding: 28px 20px;
+  }
+
+  .register-title{
+    font-size: 1.4rem;
+    letter-spacing: 2px;
+  }
+
+  .event-option span{
+    font-size: 15px;
+    white-space: normal;
+  }
+
+  .team-fields{
+    margin-left: 0;
+  }
+
+  .team-fields input,
+  .team-fields select{
+    font-size: 14px;
+  }
+
+  .payment-box{
+    padding: 12px;
+  }
+
+  .qr-box img{
+    width: 180px !important;
+  }
+
+  nav{
+    flex-direction: row;
+    padding: 12px;
+  }
+
+  nav a{
+    font-size: 14px;
+    margin-left: 10px;
+  }
+
+}
+/* ================= MOBILE ALIGNMENT FIX ================= */
+@media (max-width: 600px) {
+
+  /* ---------- HERO SECTION ---------- */
+  .hero {
+    padding-top: 100px;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .hero-content {
+    width: 100%;
+    max-width: 100%;
+    align-items: center;
+    text-align: center;
+  }
+
+  .college-name,
+  .affiliation,
+  .department,
+  .presents {
+    letter-spacing: 1.5px;
+    font-size: 0.9rem;
+  }
+
+  .event-title-img {
+    width: 90%;
+    max-width: 320px;
+  }
+
+  .hero-tagline {
+    font-size: 0.8rem;
+    letter-spacing: 1.5px;
+    padding: 0 10px;
+  }
+
+  /* ---------- COUNTDOWN ---------- */
+  .countdown {
+    width: 100%;
+    max-width: 260px;
+    margin: 14px auto;
+    font-size: 0.9rem;
+  }
+
+  /* ---------- ENTER BUTTON ---------- */
+  .register-btn {
+    width: 100%;
+    max-width: 280px;
+    margin: 16px auto 0;
+    display: block;
+    font-size: 0.85rem;
+    letter-spacing: 2px;
+  }
+
+  /* ---------- EVENTS PAGE ---------- */
+  section {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  h2, h1 {
+    text-align: center;
+  }
+
+  .event-cache {
+    padding: 0;
+    margin-left: 0;
+    margin-right: 0;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    text-align: left;
+  }
+
+  /* ---------- NAV BAR ---------- */
+  nav {
+    padding: 12px 14px;
+  }
+
+  nav div a {
+    margin-left: 12px;
+    font-size: 14px;
+  }
+
+}
+/* ================= FLUID RESPONSIVE TYPOGRAPHY FIX ================= */
+
+/* GLOBAL MOBILE RESET */
+@media (max-width: 768px) {
+
+  body {
+    overflow-x: hidden;
+  }
+
+  /* ---------- NAV ---------- */
+  nav {
+    padding: 10px 14px;
+  }
+
+  nav a {
+    font-size: clamp(12px, 3.5vw, 14px);
+    margin-left: 12px;
+  }
+
+  /* ---------- HERO SECTION ---------- */
+  .hero {
+    padding-top: 90px;
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+
+  .hero-content {
+    width: 100%;
+    max-width: 100%;
+    text-align: center;
+    align-items: center;
+  }
+
+  .college-name {
+    font-size: clamp(0.75rem, 3.5vw, 0.95rem);
+    letter-spacing: 1.5px;
+  }
+
+  .affiliation {
+    font-size: clamp(0.65rem, 3vw, 0.85rem);
+    letter-spacing: 1px;
+  }
+
+  .department {
+    font-size: clamp(0.7rem, 3.2vw, 0.9rem);
+    letter-spacing: 1.2px;
+  }
+
+  .presents {
+    font-size: clamp(0.65rem, 3vw, 0.85rem);
+    letter-spacing: 2px;
+  }
+
+  /* EVENT TITLE IMAGE */
+  .event-title-img {
+    width: min(90vw, 300px);
+  }
+
+  /* TAGLINE */
+  .hero-tagline {
+    font-size: clamp(0.65rem, 3vw, 0.85rem);
+    letter-spacing: 1.2px;
+    padding: 0 10px;
+  }
+
+  /* ---------- COUNTDOWN ---------- */
+  .countdown {
+    width: 100%;
+    max-width: 240px;
+    font-size: clamp(0.7rem, 3vw, 0.9rem);
+    margin: 12px auto;
+  }
+
+  /* ---------- ENTER BUTTON ---------- */
+  .register-btn {
+    width: 100%;
+    max-width: 260px;
+    font-size: clamp(0.7rem, 3.2vw, 0.9rem);
+    letter-spacing: 2px;
+    padding: 12px 0;
+    margin: 16px auto 0;
+    display: block;
+  }
+
+  /* ---------- SECTION HEADINGS ---------- */
+  h1, h2 {
+    font-size: clamp(1.2rem, 6vw, 1.6rem);
+    letter-spacing: 3px;
+    text-align: center;
+  }
+
+  /* ---------- EVENT DESCRIPTION TEXT ---------- */
+  .event-cache {
+    font-size: clamp(0.8rem, 3.6vw, 0.95rem);
+    line-height: 1.65;
+    text-align: left;
+    padding: 0;
+    margin: 10px auto 20px;
+  }
+
+}
+/* ================= FINAL DEVICE-BASED TEXT ALIGNMENT FIX ================= */
+
+@media (max-width: 768px) {
+
+  /* ---------- GLOBAL ---------- */
+  body {
+    overflow-x: hidden;
+  }
+
+  section {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  /* ---------- HEADINGS (CENTERED) ---------- */
+  h1, h2, h3 {
+    text-align: center;
+    letter-spacing: 2px;
+  }
+
+  /* ---------- HERO TEXT ---------- */
+  .college-name,
+  .affiliation,
+  .department,
+  .presents,
+  .hero-tagline {
+    text-align: center;
+    letter-spacing: 1.2px;
+  }
+
+  /* ---------- EVENT TITLES ---------- */
+  .event-heading {
+    text-align: center;
+    letter-spacing: 2px;
+  }
+
+  /* ---------- PARAGRAPH / CONTENT TEXT ---------- */
+  .event-cache,
+  .event-cache p {
+    text-align: justify;
+    text-justify: inter-word;
+
+    font-size: clamp(0.85rem, 3.8vw, 1rem);
+    line-height: 1.7;
+
+    margin: 14px auto 22px;
+    padding: 0;
+    letter-spacing: 0.3px;
+    word-spacing: 1px;
+  }
+
+  /* ---------- PREVENT ODD LINE BREAKS ---------- */
+  .event-cache span {
+    white-space: normal;
+  }
+
+  /* ---------- BUTTON ---------- */
+  .register-btn {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    text-align: center;
+  }
+
+  /* ---------- NAV ---------- */
+  nav {
+    justify-content: space-between;
+  }
+
+  nav a {
+    font-size: 14px;
+    letter-spacing: 1.5px;
+  }
+
+}
+/* =========================================================
+   FINAL PROFESSIONAL ALIGNMENT & JUSTIFICATION FIX
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+  /* ---------- GENERAL LAYOUT ---------- */
+  body {
+    overflow-x: hidden;
+  }
+
+  section {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  /* ---------- MAIN EVENT HEADINGS ---------- */
+  .event-heading,
+  .technical-title,
+  .non-technical-title,
+  h2 {
+    text-align: center !important;
+    letter-spacing: 2px;
+    margin: 30px 0 18px;
+  }
+
+  /* ---------- TECH / NON-TECH HEADINGS TEXT ---------- */
+  .event-heading {
+    font-size: clamp(1.3rem, 6vw, 1.6rem);
+    text-transform: uppercase;
+  }
+
+  /* ---------- EVENT CONTENT / DESCRIPTION ---------- */
+  .event-cache {
+    text-align: justify !important;
+    text-justify: inter-word;
+
+    font-size: clamp(0.85rem, 3.8vw, 1rem);
+    line-height: 1.75;
+
+    margin: 0 auto 24px;
+    padding: 0;
+
+    letter-spacing: 0.25px;
+    word-spacing: 1px;
+  }
+
+  /* ---------- FIX INLINE GLITCH SPANS ---------- */
+  .event-cache span {
+    white-space: normal !important;
+    display: inline;
+  }
+
+  /* ---------- HERO TEXT (CENTERED) ---------- */
+  .college-name,
+  .affiliation,
+  .department,
+  .presents,
+  .hero-tagline {
+    text-align: center;
+    letter-spacing: 1.2px;
+  }
+
+  /* ---------- BUTTON CENTERING ---------- */
+  .register-btn {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+
+  /* ---------- NAV BAR ---------- */
+  nav {
+    padding: 12px 16px;
+    justify-content: space-between;
+  }
+
+  nav a {
+    font-size: 14px;
+    letter-spacing: 1.5px;
+  }
+}
+/* =========================================================
+   FINAL FIX – TECH & NON-TECH HEADINGS (CENTERED + RESPONSIVE)
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+  /* Technical / Non-Technical headings */
+  .event-heading {
+    text-align: center;
+    font-size: clamp(1.1rem, 5vw, 1.4rem);
+    letter-spacing: 1.5px;
+    margin: 28px 0 16px;
+  }
+
+}
+/* =========================================================
+   MOBILE FIX – LOTUS LOGO VISIBILITY
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+  /* Push hero content down safely */
+  .hero {
+    padding-top: calc(100px + env(safe-area-inset-top));
+  }
+
+  /* Ensure logo scales properly */
+  .college-logo {
+    max-width: 70px;
+    height: auto;
+    margin-bottom: 12px;
+  }
+
+}
+/* =========================================================
+   🔥 FINAL SCROLL UNLOCK FIX – EVENTS PAGE
+   DO NOT REMOVE – DO NOT MODIFY ABOVE CODE
+   ========================================================= */
+
+/* 1️⃣ Force page scrolling */
+html, body {
+  height: auto !important;
+  overflow-y: auto !important;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* 2️⃣ Disable scroll blocking overlays */
+body::after,
+.video-bg,
+.video-bg::after {
+  pointer-events: none !important;
+}
+
+/* 3️⃣ Unlock Events page vertical scroll */
+section,
+main {
+  position: relative !important;
+  overflow: visible !important;
+}
+
+/* 4️⃣ FIX event list scrolling */
+.st-row-wrapper {
+  overflow-x: auto !important;
+  overflow-y: visible !important;
+  touch-action: pan-x pan-y;
+}
+
+/* 5️⃣ Mobile-specific hard unlock */
+@media (max-width: 768px) {
+  body {
+    position: static !important;
+    overflow-y: auto !important;
+  }
+
+  .hero {
+    height: auto !important;
+    min-height: unset !important;
+  }
+
+  section {
+    min-height: auto !important;
+  }
+}
+/* =========================================================
+   🔥 MOBILE HARD FIX – UPSIDE DOWN + NON-TECH EVENTS
+   ========================================================= */
+/* =========================================================
+   🔥 SAFE UPSIDE DOWN EFFECT (SCROLL FRIENDLY)
+   ========================================================= */
+
+#world.upside-down {
+  animation: flipWorldSafe 1.6s ease-in-out forwards;
+  transform-origin: center center;
+  will-change: transform;
+}
+
+/* SAFE animation (no filter, no full invert) */
+@keyframes flipWorldSafe {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+  50% {
+    transform: rotate(180deg) scale(1.02);
+  }
+  100% {
+    transform: rotate(360deg) scale(1);
+  }
+}
+
+/* Mobile tuning */
+@media (max-width: 768px) {
+  #world.upside-down {
+    animation-duration: 1.2s;
+  }
+}
+
+/* =========================================================
+   🔥 SAFE ZOOM IN / ZOOM OUT EFFECT (MOBILE FRIENDLY)
+   ========================================================= */
+
+/* Wrapper zoom animation */
+.safe-zoom {
+  animation: safeZoom 6s ease-in-out infinite;
+  transform-origin: center center;
+  will-change: transform;
+}
+
+/* Zoom keyframes */
+@keyframes safeZoom {
+  0% {
+    transform: scale(1);
+  }
+  45% {
+    transform: scale(1.04);
+  }
+  55% {
+    transform: scale(1.04);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Mobile tuning (less aggressive) */
+@media (max-width: 768px) {
+  .safe-zoom {
+    animation: safeZoomMobile 7s ease-in-out infinite;
+  }
+
+  @keyframes safeZoomMobile {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.02);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+}
+/* =========================================================
+   🔥 FINAL RESTORE FIX – BRING BACK TRUE FULLSCREEN
+   ========================================================= */
+
+/* Remove body padding effect on fullscreen background */
+body {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+/* Force background to ignore body width */
+.video-bg {
+  position: fixed !important;
+  inset: 0 !important;
+
+  width: 100vw !important;
+  height: 100vh !important;
+
+  margin: 0 !important;
+  padding: 0 !important;
+
+  left: 0 !important;
+  right: 0 !important;
+}
+
+/* Force media to cover viewport, not container */
+.video-bg video,
+.video-bg img {
+  width: 100vw !important;
+  height: 100vh !important;
+
+  object-fit: cover !important;
+  object-position: center center !important;
+}
+/* =========================================================
+   📱 MOBILE ONLY – EVENT DESCRIPTION LIKE REG PANEL
+   ========================================================= */
+@media (max-width: 768px) {
+
+  /* Center the event box */
+  .event-mobile-box {
+    width: 92%;
+    max-width: 420px;
+    max-height: 85vh;
+
+    margin: 80px auto;   /* space from top */
+    padding: 26px 20px;
+
+    background: rgba(0, 0, 0, 0.78);
+    backdrop-filter: blur(6px);
+
+    border: 1px solid rgba(255, 40, 40, 0.45);
+    border-radius: 10px;
+
+    box-shadow:
+      0 0 25px rgba(229, 9, 20, 0.6),
+      inset 0 0 20px rgba(0, 0, 0, 0.8);
+
+    overflow-y: auto;
+  }
+
+  /* Hide scrollbar */
+  .event-mobile-box::-webkit-scrollbar {
+    width: 0;
+  }
+
+  /* Reset section padding inside box */
+  .event-mobile-box section {
+    padding: 0 !important;
+  }
+
+  /* Center headings */
+  .event-mobile-box h1,
+  .event-mobile-box h2 {
+    text-align: center;
+  }
+}
+
+/* =========================================================
+   📱 FINAL MOBILE FIX — STOP OVERLAP FOREVER
+   ========================================================= */
+@media (max-width: 768px) {
+
+  /* 1️⃣ KEEP GLITCH FOR HEADINGS ONLY */
+  h1 .glitch,
+  h2 .glitch,
+  h3 .glitch {
+    display: inline-block;
+  }
+
+  /* 2️⃣ DISABLE GLITCH INSIDE PARAGRAPHS (CRITICAL) */
+  p .glitch,
+  .event-cache .glitch {
+    animation: none !important;
+    text-shadow: none !important;
+  }
+
+  p .glitch::before,
+  p .glitch::after,
+  .event-cache .glitch::before,
+  .event-cache .glitch::after {
+    display: none !important;
+    content: none !important;
+  }
+
+  /* 3️⃣ TEXT SAFETY */
+  p,
+  .event-cache {
+    line-height: 1.85 !important;
+    letter-spacing: 0.4px;
+    word-break: break-word;
+    overflow-wrap: break-word;
+  }
+
+  /* 4️⃣ KILL TRANSFORMS THAT BREAK TEXT */
+  #world,
+  .safe-zoom,
+  .upside-down {
+    transform: none !important;
+    animation: none !important;
+  }
+}
+/* =========================================================
+   📱 MOBILE FIX – TECHNICAL EVENTS TEXT VISIBILITY
+   ========================================================= */
+@media (max-width: 768px) {
+
+  /* Wrap technical/non-technical text in readable layer */
+  .event-cache {
+    background: rgba(0, 0, 0, 0.55);   /* 🔑 contrast */
+    padding: 18px 16px;
+    border-radius: 10px;
+
+    box-shadow:
+      0 0 18px rgba(229, 9, 20, 0.45),
+      inset 0 0 12px rgba(0, 0, 0, 0.8);
+
+    color: #ff4a4a;   /* brighter red for mobile */
+  }
+
+  /* Heading visibility */
+  .event-heading {
+    color: #ff2a2a;
+    text-shadow:
+      0 0 10px rgba(255, 40, 40, 0.8),
+      0 0 22px rgba(180, 0, 0, 0.6);
+  }
+
+  /* Paragraph safety */
+  .event-cache p {
+    opacity: 0.95;
+  }
+}
+/* =========================================================
+   📱 MOBILE — KEYWORDS ONLY: RED ↔ BLUE COLOR FLICKER
+   (Works with existing .glitch HTML)
+   ========================================================= */
+@media (max-width: 768px) {
+
+  /* TARGET ONLY glitch keywords inside event text */
+  .event-cache .glitch {
+    animation: mobileKeywordFlicker 1s ease-in-out infinite;
+    font-weight: 600;
+  }
+
+  /* Disable glitch layers on mobile (prevents overlap) */
+  .event-cache .glitch::before,
+  .event-cache .glitch::after {
+    display: none !important;
+    content: none !important;
+  }
+
+  /* Color-only flicker animation */
+  @keyframes mobileKeywordFlicker {
+    0% {
+      color: #ff2a2a; /* Stranger Things red */
+      text-shadow: none;
+    }
+    45% {
+      color: #ff2a2a;
+    }
+    55% {
+      color: #00e5ff; /* Upside Down blue */
+      text-shadow:
+        0 0 6px rgba(0, 229, 255, 0.6),
+        0 0 14px rgba(0, 229, 255, 0.35);
+    }
+    65% {
+      color: #ff2a2a;
+      text-shadow: none;
+    }
+    100% {
+      color: #ff2a2a;
+    }
+  }
+}
+/* =========================================================
+   📱 MOBILE – KEYWORDS BLUE FLICKER (ALL PARAGRAPHS)
+   ========================================================= */
+@media (max-width: 768px) {
+
+  /* Re-enable flicker ONLY for keyword spans */
+  p .glitch,
+  .event-cache .glitch {
+    animation: mobileKeywordBlue 1.5s ease-in-out infinite !important;
+    font-weight: 600;
+  }
+
+  /* Kill ghost layers (prevents overlap) */
+  p .glitch::before,
+  p .glitch::after,
+  .event-cache .glitch::before,
+  .event-cache .glitch::after {
+    display: none !important;
+    content: none !important;
+  }
+
+  /* Red → Blue → Red color flicker */
+  @keyframes mobileKeywordBlue {
+    0% {
+      color: #ff2a2a;
+      text-shadow: none;
+    }
+    45% {
+      color: #ff2a2a;
+    }
+    55% {
+      color: #00e5ff;
+      text-shadow:
+        0 0 6px rgba(0, 229, 255, 0.6),
+        0 0 14px rgba(0, 229, 255, 0.35);
+    }
+    65% {
+      color: #ff2a2a;
+      text-shadow: none;
+    }
+    100% {
+      color: #ff2a2a;
+    }
+  }
+}
+/* =========================================
+   SIMPLE MOBILE CONSISTENCY FIX (ADD LAST)
+   ========================================= */
+
+html, body {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+/* Lock viewport height behavior */
+body {
+  min-height: 100vh;
+}
+
+/* Stable fullscreen background */
+.video-bg {
+  position: fixed !important;
+  inset: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+}
+
+/* ✅ MOBILE SAFE: do NOT kill transforms globally */
+@media (max-width: 768px) {
+
+  /* Allow world flip */
+  #world.upside-down {
+    animation: flipWorldSafe 1.2s ease-in-out forwards !important;
+    transform-origin: center center;
+  }
+
+  /* Disable only problematic effects */
+  .safe-zoom {
+    animation: none !important;
+  }
+}
+
+/* 🔒 LOCK TEXT RENDERING SAME ON ALL PHONES */
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+body {
+  font-kerning: normal;
+  font-variant-ligatures: none;
+}
+/* ================= MOBILE-SAFE UPSIDE DOWN ================= */
+
+#world {
+  transform-origin: center center;
+  will-change: transform;
+}
+
+/* DESKTOP */
+#world.upside-down {
+  animation: flipDesktop 1.4s ease-in-out forwards;
+}
+
+@keyframes flipDesktop {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(180deg); }
+}
+
+/* MOBILE SAFE */
+@media (max-width: 768px) {
+  #world.upside-down {
+    animation: flipMobile 1s ease-in-out forwards;
+  }
+
+  @keyframes flipMobile {
+    from {
+      transform: rotate(0deg) translateZ(0);
+    }
+    to {
+      transform: rotate(180deg) translateZ(0);
+    }
+  }
+}
+
+/* ===== SECTION ===== */
+.contact-section {
+  padding: 60px 20px;
+}
+
+/* ===== CARD ===== */
+.coordinator-card {
+  max-width: 520px;
+  margin: 40px auto;
+  padding: 26px 28px;
+
+  background: rgba(0,0,0,0.65);
+  border-radius: 14px;
+  border: 1px solid rgba(255,42,42,0.4);
+
+  box-shadow:
+    0 0 30px rgba(229,9,20,0.35),
+    inset 0 0 20px rgba(0,0,0,0.9);
+}
+
+/* ===== TITLE ===== */
+.coord-title {
+  text-align: center;
+  color: #ff2a2a;
+  letter-spacing: 3px;
+  font-size: 1rem;
+  margin-bottom: 22px;
+
+  text-shadow: 0 0 12px rgba(255,42,42,0.8);
+}
+
+/* ===== ROW ===== */
+.coord-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 12px 16px;
+  margin-bottom: 14px;
+
+  background: rgba(0,0,0,0.55);
+  border-radius: 8px;
+  border: 1px solid rgba(255,42,42,0.25);
+
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.coord-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 18px rgba(255,42,42,0.5);
+}
+
+/* ===== LEFT CONTENT ===== */
+.coord-left {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.coord-name {
+  font-size: 0.95rem;
+  letter-spacing: 1.5px;
+  color: #ffffff;
+}
+
+.coord-number {
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.55);
+}
+
+/* ===== PHONE ICON ===== */
+.coord-icon {
+  font-size: 1.1rem;
+  color: #ff3b3b;
+  transition: transform 0.2s ease, text-shadow 0.2s ease;
+}
+
+.coord-icon:hover {
+  transform: scale(1.25);
+  text-shadow: 0 0 12px red;
+}
+
+/* ===== MOBILE ===== */
+@media (max-width: 768px) {
+  .coordinator-card {
+    margin: 30px 12px;
+    padding: 22px;
+  }
+
+  .coord-name {
+    font-size: 0.9rem;
+  }
+
+  .coord-number {
+    font-size: 0.78rem;
+  }
+}
+
+
