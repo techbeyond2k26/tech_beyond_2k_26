@@ -140,21 +140,9 @@ const fade = setInterval(() => {
 
 
   /* ================= PAYMENT LOGIC ================= */
-  const surprise = document.getElementById("surpriseEvent");
-  const amountSpan = document.getElementById("payAmount");
-  const paymentProof = document.getElementById("paymentProof");
+const paymentProof = document.getElementById("paymentProof");
 const form = document.querySelector(".register-box form");
 
-
-  function updateAmount() {
-    amountSpan.textContent = surprise && surprise.checked ? "₹250" : "₹200";
-  }
-
-  if (surprise) {
-    surprise.addEventListener("change", updateAmount);
-  }
-
-  updateAmount();
 form.addEventListener("submit", async (e) => {
   e.preventDefault();
 document.getElementById("stLoader").classList.add("active");
@@ -162,10 +150,7 @@ document.getElementById("stLoader").classList.add("active");
 
 
   const SCRIPT_URL =
-    "https://script.google.com/macros/s/AKfycby3TJN-TEg_G_kxpN9m6-zpMWcULsQS0CqDT5U8iyw49RFiQftLQjMXIfPFlD5D1vyKvA/exec";
-
-  const surprise = document.getElementById("surpriseEvent");
-  surprise.value = surprise.checked ? "YES" : "NO";
+    "https://script.google.com/macros/s/AKfycbz-AV3XdxtURHb6Tfd9lRgGW2I2qBa8J-9uZQF1z5HteyHgFGczC-L3rGIEjwf-IIX99A/exec";
 
   const fileInput = document.getElementById("paymentProof");
   if (!fileInput.files.length) {
