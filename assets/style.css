@@ -137,7 +137,7 @@ a {
   box-shadow: 0 0 12px rgba(255, 42, 42, 0.6);
 }
 
-/* Active page */
+/* Active page *
 .st-menu a.active {
   background: rgba(255, 42, 42, 0.35);
   box-shadow:
@@ -2796,4 +2796,5 @@ body {
     font-size: 0.78rem;
   }
 }
+
 
