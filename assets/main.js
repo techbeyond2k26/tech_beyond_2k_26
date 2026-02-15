@@ -150,7 +150,7 @@ document.getElementById("stLoader").classList.add("active");
 
 
   const SCRIPT_URL =
-    "https://script.google.com/macros/s/AKfycbz-AV3XdxtURHb6Tfd9lRgGW2I2qBa8J-9uZQF1z5HteyHgFGczC-L3rGIEjwf-IIX99A";
+    "https://script.google.com/macros/s/AKfycbyh5Xq5NkWkH09sIXJifUPIlqzXyUHLFwMbKDlXCCHnu60WRs2V1HVdusAlDE0rFK6D8w/exec";
 
   const fileInput = document.getElementById("paymentProof");
   if (!fileInput.files.length) {
@@ -237,4 +237,5 @@ function triggerUpsideDown() {
   }, 1700);
 }
 });
+
 
