@@ -1,248 +1,128 @@
-
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Register | VEC Sympo</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="assets/style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Registration Closed</title>
+
+<!-- Google Font (Stranger Things Style Feel) -->
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800&display=swap" rel="stylesheet">
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        height: 100vh;
+        background: radial-gradient(circle at center, #140000 0%, #000000 60%);
+        font-family: 'Cinzel', serif;
+        color: #ff2a2a;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+    }
+
+    /* Fog Background Animation */
+    body::before {
+        content: "";
+        position: absolute;
+        width: 200%;
+        height: 200%;
+        background: url("https://www.transparenttextures.com/patterns/asfalt-dark.png");
+        opacity: 0.08;
+        animation: fogMove 60s linear infinite;
+    }
+
+    @keyframes fogMove {
+        from { transform: translate(0,0); }
+        to { transform: translate(-500px,-500px); }
+    }
+
+    .container {
+        text-align: center;
+        z-index: 2;
+        padding: 40px;
+        border: 2px solid rgba(255,0,0,0.4);
+        border-radius: 15px;
+        background: rgba(0,0,0,0.6);
+        backdrop-filter: blur(8px);
+        box-shadow: 0 0 30px rgba(255,0,0,0.3);
+        animation: fadeIn 2s ease forwards;
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(30px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    h1 {
+        font-size: 3rem;
+        letter-spacing: 5px;
+        margin-bottom: 20px;
+        text-shadow: 
+            0 0 5px #ff0000,
+            0 0 15px #ff0000,
+            0 0 30px #aa0000;
+        animation: glow 2s ease-in-out infinite alternate;
+    }
+
+    @keyframes glow {
+        from { text-shadow: 0 0 10px #ff0000; }
+        to { text-shadow: 0 0 25px #ff0000, 0 0 40px #aa0000; }
+    }
+
+    .subtext {
+        font-size: 1.2rem;
+        color: #ffffff;
+        margin-top: 15px;
+        letter-spacing: 1px;
+    }
+
+    .announcement {
+        margin-top: 30px;
+        padding: 15px 25px;
+        border: 1px solid rgba(255,0,0,0.6);
+        border-radius: 8px;
+        background: rgba(20,0,0,0.8);
+        font-size: 1.1rem;
+        color: #ff4d4d;
+        animation: pulse 3s infinite;
+    }
+
+    @keyframes pulse {
+        0% { box-shadow: 0 0 5px rgba(255,0,0,0.3); }
+        50% { box-shadow: 0 0 20px rgba(255,0,0,0.6); }
+        100% { box-shadow: 0 0 5px rgba(255,0,0,0.3); }
+    }
+
+    footer {
+        position: absolute;
+        bottom: 20px;
+        font-size: 0.8rem;
+        color: rgba(255,255,255,0.4);
+        letter-spacing: 2px;
+    }
+</style>
 </head>
 
-<body class="register-bg">
+<body>
 
-<nav class="st-nav">
-  <div class="st-nav-inner">
-
-    <!-- Logo -->
-    <div class="st-logo">
-      <img src="assets/logo-removebg-preview.png" alt="VEC Logo">
+<div class="container">
+    <h1>REGISTRATION CLOSED</h1>
+    <div class="subtext">
+        The gates to the Upside Down are sealed.
     </div>
 
-    <!-- Menu -->
-    <ul class="st-menu">
-      <li><a href="index.html" class="active">Home</a></li>
-      <li><a href="events.html">Event</a></li>
-      <li><a href="index.html#contact">Contact</a></li>
-    </ul>
-
-
-  </div>
-</nav>
-
-<section class="register-section">
-  <div class="register-box">
-
-    <h2 class="register-title">ENTER THE GATE</h2>
-    <p class="register-sub">
-      Registration is not just a form — it’s a passage into the
-      <span class="glitch" data-text="Upside Down">Upside Down</span>.
-    </p>
-    <p class="register-sub"> Registration Fee - 200 Per Head<p>
-
-    <form>
-
-      <!-- BASIC DETAILS -->
-      <label for="fullName">Full Name</label>
-      <input
-        type="text"
-        id="fullName"
-        name="fullName"
-        placeholder="Full Name"
-        required>
-
-      <label for="email">Email Address</label>
-      <input
-        type="email"
-        id="email"
-        name="email"
-        placeholder="Email Address"
-        required>
-      <label for="Mobile Number">Mobile Number</label>
-      <input
-        type="number"
-        id="mobile number"
-        name="number"
-        placeholder="Mobile Number"
-        required>
-
-      <label for="college">College Name</label>
-      <input
-        type="text"
-        id="college"
-        name="college"
-        placeholder="College Name"
-        required>
-
-      <select name="year" required>
-        <option value="" disabled selected>Select Year</option>
-        <option>1st Year</option>
-        <option>2nd Year</option>
-        <option>3rd Year</option>
-        <option>4th Year</option>
-      </select>
-
-      <select name="department" required>
-        <option value="" disabled selected>Select Department</option>
-        <option>Information Technology</option>
-        <option>Computer Science Engineering</option>
-        <option>Artificial Intelligence & Data Science</option>
-        <option>Electronics and Communication Engineering</option>
-        <option>Electrical and Electronics Engineering</option>
-        <option>Mechanical Engineering</option>
-        <option>Civil Engineering</option>
-        <option>Other</option>
-      </select>
-
-      <p class="event-heading">Select Maximum of 3 events</p>
-      <!-- Hidden counter (DO NOT REMOVE) -->
-      <span id="eventCount" style="display:none;">0</span>
-      <!-- EVENTS -->
-      <div class="event-section">
-
-        <h3 class="event-heading">TECHNICAL EVENTS</h3>
-
-        <label class="event-option">
-          <input type="checkbox" name="events" data-team="true" data-min="1" data-max="2">
-          <span>Frontend Flayer<br>(UI/UX)</span>
-        </label>
-    <div class="team-fields" data-team-fields style="display:none;"></div>
-
-
-        <label class="event-option">
-          <input type="checkbox" name="events" data-team="true" data-min="1" data-max="3">
-          <span>Stranger Archives<br>(Paper Presentation)</span>
-        </label>
-      <div class="team-fields" data-team-fields style="display:none;"></div>
-
-
-        
-       <div class="team-fields" data-team-fields style="display:none;"></div>
-
-
-        
-    <div class="team-fields" data-team-fields style="display:none;"></div>
-
-
-        <label class="event-option">
-          <input type="checkbox" name="events" data-team="true" data-min="1" data-max="2">
-          <span>Error 404:Upside Down<br>(Debugging)</span>
-        </label>
-     <div class="team-fields" data-team-fields style="display:none;"></div>
-
-
-        <h3 class="event-heading">NON-TECHNICAL EVENTS</h3>
-
-        
-        <div class="team-fields" data-team-fields style="display:none;"></div>
-
-
-        
-      <div class="team-fields" data-team-fields style="display:none;"></div>
-
-
-        
-     <div class="team-fields" data-team-fields style="display:none;"></div>
-
-
-        <label class="event-option">
-          <input type="checkbox" name="events" data-team="true" data-min="4" data-max="6">
-          <span>The AD Dimension<br>(AD Zap)</span>
-        </label>
-    <div class="team-fields" data-team-fields style="display:none;"></div>
-
-
-        <label class="event-option">
-          <input type="checkbox" name="events" data-team="true" data-min="1" data-max="1">
-          <span>Vision of Will Byers<br>(Short Film)</span>
-        </label>
-        <div class="team-fields" data-team-fields style="display:none;"></div>
-
-
-      </div>
-
-      <!-- FOOD PREFERENCE -->
-<h3 class="event-heading">FOOD PREFERENCE</h3>
-
-<p class="event-note">
-  Fuel for your journey into the Upside Down
-</p>
-      
-<label class="event-option">
-  <input type="radio" name="foodPreference" value="Veg" required>
-  <span>Vegetarian</span>
-</label>
-
-<label class="event-option">
-  <input type="radio" name="foodPreference" value="Non-Veg" required>
-  <span>Non-Vegetarian</span>
-</label>
-
-
-      <!-- PAYMENT -->
-      <h3 class="event-heading">PAYMENT DETAILS</h3>
-
-      <div class="payment-box">
-        <p class="payment-amount">
-          Registration Fee: <span id="payAmount">₹200</span>
-        </p>
-
-        <div class="qr-box">
-          <img
-            src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=upi://pay?pa=nirishakaruppaiya-1@oksbi&pn=VEC%20Symposium&cu=INR"
-            alt="UPI QR Code">
-        </div>
-
-        <input
-          type="file"
-          id="paymentProof"
-          name="paymentProof"
-          accept="image/*"
-          required>
-
-        <p class="disclaimer">
-          >>IN CASE PAYMENT FAILS KINDLY SEND THE MONEY TO THIS UPI NUMBER 7904614023(MANOVA MD)
-          ⚠️ Bring the payment screenshot when you come for the symposium.
-        </p>
-      </div>
-
-      <button type="submit" class="register-btn">
-        ENTER THE UPSIDE DOWN
-      </button>
-
-    </form>
-  </div>
-</section>
-</form>
-</section>
-
-<!-- ✅ STRANGER THINGS LOADER (OUTSIDE FORM) -->
-<div id="stLoader">
-  <div class="st-lines"></div>
-  <div class="st-box">
-    <h1>WAIT A MOMENT</h1>
-    <p>The gate is opening...</p>
-  </div>
-</div>
-<!-- STRANGER THINGS DUPLICATE ALERT -->
-<div id="duplicateOverlay">
-  <div class="dup-lines"></div>
-
-  <div class="dup-box">
-    <h1>ALREADY REGISTERED</h1>
-    <p>You have crossed this gate before</p>
-
-    <button onclick="location.href='index.html'">HOME</button>
-    <button onclick="location.href='events.html'">EVENTS</button>
-  </div>
+    <div class="announcement">
+        ⚡ On-Spot Registration Available Until 9:00 AM ⚡
+    </div>
 </div>
 
-<script  defer src="assets/main.js"></script>
-<script>
-  window.addEventListener("pageshow", function (e) {
-    if (e.persisted) {
-      location.reload();
-    }
-  });
-</script>
 
 </body>
 </html>
+
